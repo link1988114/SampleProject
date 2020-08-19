@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+  <!--
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+      -->
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+    <script src="js/tools/jquery.min.js"></script>
+    <script src="js/tools/jquery.form.js"></script>
+    <script src="js/tools/bootstrap.min.js"></script>
+
+    <script src="js/tools/jquery.dataTables.min.js"></script>
+    <script src="js/tools/dataTables.select.min.js"></script>
+    <script src="js/tools/dataTables.buttons.min.js"></script>
+    <script src="js/tools/laydate.js"></script>
+
+    <script src="js/popwindow.js"></script>
+
+    <link href="css/jquery.dataTables.css" type="text/css" rel="stylesheet" />
+    
+    <link href="css/style_1.css" type="text/css" rel="stylesheet" />
+    
+    <link href="css/select2.css" type="text/css" rel="stylesheet" />
+    <script src="js/tools/select2.min.js"></script>
+
+    <title>用户管理</title>
+</head>
+
+<body style="background-color:#eeeeee;" >
+    <div class="container-fluid" >
+    
+    	<div>
+    		<button id="btn_adduser" class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">新增</button>
+    		<button id="btn_deluser" class="btn btn-info" style="margin-top:10px; margin-bottom:10px;">删除</button>
+    	</div>
+    
+        <table id="viewTable" class="dataTable display cell-border hover" style="overflow:auto; background-color:#4a8aca; border-left:1px solid black;border-right:1px solid black;border-top:1px solid black; border-collapse:collapse">        
+            <thead style="color:white"></thead>
+        </table>
+
+        <div class="space"></div>
+    </div>
+
+
+    <div id="mask" class="blackmask tcenter" style="display:none" >
+        <div id="pop1" class="popwindow" style="width:500px;height:400px;position:relative; padding-top:20px">
+        	<div id="popContent" style="text-align:left; height:350px; overflow-y:auto;"> 
+        		<div style="padding:0 10px 0 10px">
+        			<div style="float:left;width:20%;height:30px;line-height:30px">
+        				<span>用户名</span>
+        			</div>
+        			<div style="float:left;width:79%">
+        				<input id="username" style="width:96%" type="text" />
+        			</div>
+        			<div class="space"></div>
+        		</div>
+        		<div style="padding:0 10px 0 10px; margin-bottom:10px">
+        		    <div style="float:left;width:20%;height:30px;line-height:30px">
+        				<span>所属机构</span>
+        			</div>
+        			<div style="float:left;width:79%">
+        				<select id="select_station" style="width:100%"></select>
+        			</div>
+        			<div class="space"></div>
+        		</div>
+        		<div style="padding:0 10px 0 10px">
+        		    <div style="float:left;width:20%;height:30px;line-height:30px">
+        				<span>权限</span>
+        			</div>
+        			<div style="float:left;width:79%">
+        				<select id="select_rights" style="width:100%"></select>
+        			</div>
+        			<div class="space"></div>
+        		</div>
+        		<div style="padding:0 10px 0 10px">
+        			<div style="float:left;width:20%;height:30px;line-height:30px">
+        				<span>字段</span>
+        			</div>
+        			<div style="float:left;width:79%">
+        				<div class="accordion" id="collapse-group"></div>
+        			</div>
+        			<div class="space"></div>
+        		</div>       		
+        	</div>
+        	<div style="text-align:center;position:absolute;bottom:0;height:35px; padding-top:5px; width:100%; background-color:white;border-bottom-left-radius:5px; border-bottom-right-radius:5px">
+        		<button id="btn_resetpw" type="submit" class="btn btn-success ">重置密码</button>
+        		<button id="btn_save" type="submit" class="btn btn-success ">保存</button>
+        		<button id="btn_close" type="submit" class="btn btn-success ">关闭</button>
+        	</div>
+        </div>    
+    </div>
+
+
+</body>
+
+</html>
+
+
+<script src="js/page/user_manage.js"></script>
+

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.sampleProject.mapper.UserMapper">
+ 	<select id="checkUser" resultType="_UserModel">
+ 		select a.username,b.counting, a.userlevel, a.brch_id, a.login_time, a.try_counts 
+		from sys_users a,
+		(select count(1) as counting from sys_users where username=#{username} and password=#{password}) b
+		where a.username=#{username}
+ 	</select>
+ 	
+ 	<update id="updateLoginLog">
+ 		update sys_users set login_time = #{login_time}, try_counts = #{try_counts}
+ 		where username = #{username}
+ 	</update>
+ 	
+ 	<update id="resetTryCounts">
+ 		update sys_users set try_counts = 0
+ 		where username = #{username}
+ 	</update>
+ 	
+ 	<update id="resetPassword">
+ 		update sys_users set password = #{password} 
+ 		where username = #{username}
+ 	</update>
+ 	
+ 	<update id="setPassword">
+ 		update sys_users set password = #{newPW} 
+ 		where username = #{username} and password = #{oldPW}
+ 	</update>
+ 	
+ 	<select id="getUserList" resultType="_UserModel">
+ 		select a.username,a.userlevel,a.brch_id,b.station_name 
+ 		from sys_users a
+		left join t_station b on b.station_id=a.brch_id
+		<if test="searchValue !=''">
+			where instr(a.username,#{searchValue})>0 or instr(a.brch_id,#{searchValue})>0 or instr(b.station_name,#{searchValue})>0 
+    	</if>
+		limit #{start},#{length}
+ 	</select>
+ 	<select id="getUserListCounts" resultType="int">
+ 		select count(1) 
+ 		from sys_users a 
+		left join t_station b on b.station_id=a.brch_id
+		<if test="searchValue !=''">
+			where instr(a.username,#{searchValue})>0 or instr(a.brch_id,#{searchValue})>0 or instr(b.station_name,#{searchValue})>0 
+    	</if> 
+ 	</select>
+ 	
+ 	<delete id="deleteUser">
+ 		delete from sys_users where username=#{username}
+ 	</delete>
+ 	
+ 	<insert id="addUser">
+ 		insert into sys_users 
+ 		(username,password,userlevel,brch_id) 
+ 		values 
+ 		(#{username},#{password},#{userlevel},#{brch_id})
+ 	</insert>
+ 	
+
+
+	<!-- menu info -->
+	<select id="getMenuIDs" resultType="String">
+		select menu_ids from sys_userlevel where userlevel=#{userlevel}
+	</select>
+	
+	<select id="getMenu" resultType="_MenuModel">
+ 		select menu_id, title, url, parent_id, icon
+ 		from sys_menu
+ 		where menu_id in 
+    	<foreach item="id" index="index" collection="array" open="(" separator="," close=") ">
+    		#{id}
+    	</foreach>
+    	order by parent_id, order_id 
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
+	<select id="getAllMenu" resultType="_MenuModel">
+ 		select menu_id,title,url,parent_id 
+ 		from sys_menu
+ 		order by parent_id, order_id
+ 	</select>
+ 	
+ 	<select id="getLevelMenus" resultType="_MenuModel">
+ 		select userlevel, level_name, menu_ids 
+ 		from sys_userlevel
+ 	</select>
+ 	
+ 	<update id="updateMenu">
+ 		update sys_userlevel set menu_ids=#{menu_ids} where userlevel=#{userlevel}
+ 	</update>
+
+ 	
+ </mapper>

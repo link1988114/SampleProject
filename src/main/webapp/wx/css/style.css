@@ -1,0 +1,27 @@
+.page-title {
+    font-size: .35rem;
+    margin-bottom: .5rem;
+    font-weight: normal;
+    line-height: 0.42rem;
+    text-align: center;
+}
+
+.page-title2 {
+    font-size: .35rem;
+    margin-bottom: .3rem;
+    font-weight: normal;
+    line-height: 0.42rem;
+    text-align: center;
+}
+
+
+/*************************************************/
+.w25P {
+    width:25%;
+}
+
+.indent2{
+	text-indent:2em
+}
+
+

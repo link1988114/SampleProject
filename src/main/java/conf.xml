@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.sampleProject.model.UserModel" alias="_UserModel" />
+		<typeAlias type="com.sampleProject.model.MenuModel" alias="_MenuModel" />
+		<typeAlias type="com.sampleProject.model.WxModel" alias="_WxModel" />
+	</typeAliases>
+
+	<!-- xml需要转义的符号 :  < ,>,&,'," -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<!-- 
+			<dataSource type="POOLED">
+			-->
+			<dataSource type="com.sampleProject.dao.sys.DruidDataSourceFactory">
+				<!--  
+				<property name="driver" value="oracle.jdbc.OracleDriver" />
+				<property name="url" value="jdbc:oracle:thin:@192.168.99.11:1521:sid" />
+				<property name="username" value="test" />
+				<property name="password" value="test" />
+				-->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://127.0.0.1:3306/sampleDB?useUnicode=true&amp;useSSL=false&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+				<!-- 
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<property name="url" value="jdbc:mysql://localhost:3306/test2?useUnicode=true&amp;characterEncoding=UTF-8&amp;allowMultiQueries=true" />
+				<property name="username" value="root" />
+				<property name="password" value="root" />
+				 -->
+				
+				
+				<!-- POOLED  setting -->
+				<!-- 
+				<property name="poolMaximumActiveConnections" value="200" />
+				<property name="poolTimeToWait" value="5000" />
+				<property name="poolPingEnabled" value="true"/>
+				<property name="poolPingQuery" value="select 1 from dual" />
+				 -->
+				<!-- POOLED setting end -->
+				
+				<!-- druid setting -->
+				<property name="initialSize" value="10" />
+				<property name="minIdle" value="10" /> 
+				<property name="maxActive" value="100" />
+				<property name="maxWait" value="30000" />
+				<property name="timeBetweenEvictionRunsMillis" value="30000" />
+				<property name="minEvictableIdleTimeMillis" value="30000" />
+				<property name="validationQuery" value="SELECT 'x'" />
+				<property name="testWhileIdle" value="true" />
+				<property name="testOnBorrow" value="false" />
+				<property name="testOnReturn" value="false" />
+				
+				<!-- <property name="keepAlive" value="true" /> -->
+				<property name="removeAbandoned" value="true" />
+				<property name="removeAbandonedTimeout" value="60"/>
+				<property name="logAbandoned" value="true" />
+				
+				<property name="poolPreparedStatements" value="false" />
+				<property name="maxPoolPreparedStatementPerConnectionSize" value="-1" />
+				
+				<!-- <property name="useGlobalDataSourceStat" value="true" /> -->
+				 
+				<!-- <property name="filters" value="stat" /> -->
+				 
+				<!-- druid setting end -->
+				
+				
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<mappers>
+		<mapper resource="com/sampleProject/mapper/UserMapper.xml" />
+		<mapper resource="com/sampleProject/mapper/WxMapper.xml" />
+		<!--  <mapper class="com.sm.mapping.stockMapper_I" /> -->
+	</mappers>
+	
+</configuration>

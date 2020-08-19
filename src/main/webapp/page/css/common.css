@@ -1,0 +1,254 @@
+@charset "utf-8";
+
+/************************************************************************************
+RESET
+*************************************************************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: none;
+}
+
+s {
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    font-size: 12px;
+    -moz-user-select: none;
+    font-family: "Microsoft Yahei", Tahoma, Arial, sans-serif !important;
+    -webkit-user-select: none;
+    background: #fff;
+}
+
+input,
+textarea,
+button {
+    font-family: "Microsoft Yahei", Tahoma, Arial, sans-serif;
+}
+
+img {
+    border: 0;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+}
+
+ul li,
+ol li,
+dl li {
+    list-style-type: none;
+    list-style: none;
+}
+
+.clearfix:after {
+    content: '';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+.clr {
+    clear: both;
+    padding: 0;
+    margin: 0;
+    background: none;
+}
+
+.fright {
+    float: right;
+}
+
+.fleft {
+    float: left;
+}
+
+
+/*****通用alert********/
+
+.popLayer {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/tran.png');
+}
+
+.alert-pop .alert-cnt {
+    position: absolute;
+    width: 300px;
+    height: 196px;
+    background: url('../images/alert-bg.png') no-repeat;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -98px;
+}
+
+.alert-cnt .alert-close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('../images/close.png') no-repeat;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+}
+
+.alert-cnt .alert-content-wrap {
+    position: absolute;
+    display: table;
+    width: 235px;
+    height: 120px;
+    left: 33px;
+    top: 24px;
+    color: #2d5294;
+    font-size: 16px;
+}
+
+.alert-content-wrap .alert-content {
+    width: 235px;
+    vertical-align: middle;
+    display: table-cell;
+    *position: absolute;
+    *top: 50%;
+    text-align: center;
+}
+
+.alert-content-wrap .alert-content p {
+    *position: relative;
+    *top: -50%;
+}
+
+
+/*****自定义弹窗 弹窗 表单********/
+
+.popForm {
+    background-color: #ffffff;
+    position: fixed;
+    left: 50%;
+    top: 35%;
+    width: 340px;
+    height: 350px;
+    margin-top: -175px;
+    margin-left: -170px;
+    z-index: 9999;
+    display: none;
+}
+
+.popForm .alert-tit {
+    height: 40px;
+    line-height: 40px;
+    color: #ffffff;
+    padding: 0px 10px;
+    background-color: #349ac0;
+}
+
+.popForm .alert-tit span {
+    float: left;
+}
+
+.popForm .alert-close {
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite1.png) no-repeat 1px -149px;
+    margin-top: 12px;
+}
+
+.popForm .alert-cnt {
+    padding: 20px;
+}
+
+.cont-list li {
+    padding: 5px 0;
+    width: 100%;
+}
+
+.cont-list .form-label {
+    width: 30%;
+    display: inline-block;
+    float: left;
+    text-align: right;
+    line-height: 30px;
+}
+
+.cont-list .form-item {
+    float: left;
+    margin-left: 10px;
+    width: 60%;
+    height: 30px;
+}
+
+.cont-list .form-item input,
+.cont-list .form-item select {
+    width: 90%;
+    text-indent: 2px;
+    height: 28px;
+    border: 1px solid #b8b8b8;
+    line-height: 28px;
+}
+
+.cont-list .form-item p {
+    width: 90%;
+    text-indent: 2px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.popForm .alert-foot {
+    text-align: center;
+}
+
+.popForm .alert-foot input {
+    background-color: #f2f2f2;
+    color: #333333;
+    border: 1px solid #b4b4b4;
+    padding: 3px 10px;
+    cursor: pointer;
+    margin: 0px 5px;
+}
+
+
+/****************end of popForm***********************/
+
+.cont-list .form-item .input-third-line {
+    display: inline-block;
+    width: 57%;
+}
+
+.form-item .com-button {
+    display: inline-block;
+}
+
+.greenColor {
+    color: green;
+}
+
+.redColor {
+    color: red;
+}
+
+.blueColor{
+	color:blue;
+}
+
+.marginL5px {
+    margin-left: 5px;
+}
+
+.numInputWidth {
+    width: 50px;
+}

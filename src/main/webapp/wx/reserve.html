@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>中邮消费白名单预约</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+
+    <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/tools/jquery.min.js"></script>
+
+    <script src="js/tools/ydui.flexible.js"></script>
+    <script src="js/tools/ydui.js"></script>
+    <script>
+        (!YDUI.device.isMobile && navigator.userAgent.indexOf('Firefox') >= 0) && YDUI.dialog.alert('PC端请使用谷歌内核浏览器查看！');
+    </script>
+
+    <script src="js/tools/baicai-validation.js"></script>
+
+    <script src="js/tools/myUI.js"></script>
+
+</head>
+
+<body>
+    <section class="g-flexview">
+
+        <div class="g-scrollview">
+
+            <div style="margin-bottom:50px"></div>
+
+
+            <div class="cell-item">
+                <div class="cell-left w25P">姓名</div>
+                <div class="cell-right">
+                    <input id="cstm_name" type="text" class="cell-input" placeholder="请输入姓名" autocomplete="off">
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left w25P">身份证号</div>
+                <div class="cell-right">
+                    <input id="identify_no" type="text" class="cell-input" placeholder="请输入身份证号" autocomplete="off">
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left w25P">工作单位</div>
+                <div class="cell-right">
+                    <input id="cstm_company" type="text" class="cell-input" placeholder="请输入工作单位" autocomplete="off">
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left w25P">手机号</div>
+                <div class="cell-right">
+                    <input style="width:24%" id="cstm_mobile" type="number" pattern="[0-9]*" class="cell-input" placeholder="请输入手机号码" autocomplete="off">
+                    <a style="width:40%" id="btn_sms" href="javascript:;" class="btn btn-primary">获取验证码</a>
+                </div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left w25P">验证码</div>
+                <div class="cell-right">
+                    <input id="valid_code" type="text" class="cell-input" placeholder="请输入验证码" autocomplete="off">
+                </div>
+            </div>
+
+            <div style="border:none;margin-top:10px">
+                <div id="agreement" class="cell-right" style="justify-content:center;">
+                    <input type="checkbox" value="1" name="checkbox">
+                    <i class="cell-checkbox-icon"></i>
+                    <span>我同意《</span><a style="color:blue" href="javascript:showWarning()">个人公积金数据采集授权书</a><span>》</span>
+                </div>
+            </div>
+
+            <div id="showDisp"></div>
+
+            <button id="btn_apply" type="button" class="btn-block btn-disabled">提交申请</button>
+        </div>
+
+    </section>
+
+    <div id="popWarning" style="background-color:white; overflow-y:auto; z-index:1500; position:fixed; top:0; left:0; width:100%; height:100%;display:none">
+        <div style="margin-top:20px;margin-bottom:100px">
+            <h2 class="page-title2">个人公积金数据采集授权书</h2>
+            <div style="width:100%; padding:0 10px 10px 10px"> 
+				<p class="indent2">本公积金数据采集授权书（以下简称“本授权书”）是中邮消费金融有限公司（以下简称“公司”）采集公司各渠道平台用户（以下简称“您”）公积金数据的权利基础。</p>
+				<p class="indent2">请您审慎阅读本授权书内容并自愿勾选【已阅读并同意】或不同意本授权书。点击本页面【已阅读并同意】按钮，即表示您已同意接受本授权书的全部约定内容以及与本授权书有关的已经发布的各项规则、页面提示、操作流程、公告或通知。如果您不接受本授权书的任意内容，或者无法准确理解该条款的含义，请不要进行后续操作。</p>
+				<p class="indent2">【审慎阅读】在接受本授权书之前，请您认真阅读本授权书的全部内容（特别是以粗体标注的内容）。其中包括：</p>
+				<p class="indent2">1.限制您权利或加重您义务、责任以及减轻公司责任的条款；</p>
+				<p class="indent2">2.其他涉及您重大权益或权利与义务的条款。</p>
+				<p class="indent2"></p>
+				<p class="indent2">为充分保障您公积金数据的安全性，公司在此声明：</p>
+				<p class="indent2">1.公司仅是所采集公积金数据的应用方。</p>
+				<p class="indent2">2.公司不会保存您的账号密码信息，公司仅会在每次单独获得您授权的情况下，方予采集相应信息。</p>
+				<p class="indent2"></p>
+				<p class="indent2">您的声明与保证</p>
+				<p class="indent2">1.您是中华人民共和国法律规定的具有完全民事权利和民事行为能力，能够独立承担民事责任的自然人。</p>
+				<p class="indent2">2.您向公司提供的公积金账户信息为您的合法专有账户。如经查不属实，由此给公司或他人造成损失的，一切后果由您自行承担。</p>
+				<p class="indent2">3.您知晓并同意，公司虽已获得您的本项授权，但通过授权获取的材料仅为办理贷款所需材料之一，并不能保证您可以成功获得本次贷款。</p>
+				<p class="indent2"></p>
+				<p class="indent2">一、公积金数据采集</p>
+				<p class="indent2">1.公积金数据采集是指在您的合法授权下，公司自行或委托具备信息采集服务资质的第三方技术服务提供商（以下简称“第三方服务商”）向相关住房公积金管理中心采集、加工、储存、整理并验证您的公积金信息，以便于审核和向您发放贷款的行为。</p>
+				<p class="indent2">2.本协议所称公积金数据，包括但不限于您公积金所在地、缴纳公积金单位名称、缴纳金额、缴纳比例、缴纳基数、账户余额、是否有贷款及贷款相关状态、贷款购房地址、公积金流水信息等。</p>
+				<p class="indent2"></p>
+				<p class="indent2">二、数据收集、使用、共享与保护</p>
+				<p class="indent2">1.数据的采集</p>
+				<p class="indent2">您同意并授权公司通过以下途径获取、使用您的公积金数据信息：</p>
+				<p class="indent2">（1）自行通过住房公积金系统进行采集。</p>
+				<p class="indent2">（2）委托具备合法信息服务资质的第三方服务商进行采集。</p>
+				<p class="indent2">本授权书授权当次有效，除非得到您的再次授权，公司不会再次发起登录采集您的公积金信息。</p>
+				<p class="indent2">2.数据的使用</p>
+				<p class="indent2">您同意并授权公司将您的公积金数据用于以下用途：</p>
+				<p class="indent2">（1）审核并确认是否向您发放贷款；</p>
+				<p class="indent2">（2）经您许可的其他用途。</p>
+				<p class="indent2">    3.数据的共享与保护</p>
+				<p class="indent2">公司对您的公积金数据承担保密义务，不会保存您的公积金账号密码，不会向其他第三方出售或出租您的任何数据信息，仅在符合下列情况之一的条件下才将您的数据信息提供给特定的第三方：</p>
+				<p class="indent2">（1）获得您的同意或授权。</p>
+				<p class="indent2">（2）某些服务由公司的合作伙伴提供或协助提供，为使您能获得该服务，在必要的范围内且在合作伙伴承担同等保密义务条件下，公司会与其共享并使用您的公积金信息。</p>
+				<p class="indent2">（3）根据法律法规的规定及行政/司法机关的命令。</p>
+				<p class="indent2"></p>
+				<p class="indent2">三、账户安全及管理</p>
+				<p class="indent2">1.您了解并同意，基于使用本平台服务所需账户及密码的安全对您非常重要，您应妥善保管这些账户信息。您将对利用该账户及密码所进行的一切行动及言论，负完全的责任，并同意以下事项：</p>
+				<p class="indent2">（1）您不对其他任何人泄露账号或密码，亦不可使用其他任何人的账户或密码。因黑客、病毒或您的保管疏忽等非公司原因导致您的账户遭他人非法使用的，公司不承担责任；</p>
+				<p class="indent2">（2）您冒用、盗用他人账户及密码给公司造成损失的，公司保留追究您相关法律责任的权利。</p>
+				<p class="indent2">2.如发现有第三人冒用或盗用您的账户及密码，或其他任何未经您合法授权而使用的情形，您应立即以有效方式通知公司，且马上修改密码，要求公司暂停相关服务。同时，您理解公司对您的请求采取行动需要合理期限，在此之前，公司对第三人使用该服务所导致的损失不承担责任。</p>
+				<p class="indent2">3.公司有权基于您的行为及相应的规则，在认为可能不利于服务的提供或涉及违法违规等状况时，可不经通知而先行暂停、中断或终止向您提供公司名下的全部或部分服务，且无需对您或任何第三方承担任何责任，公司将在采取上述措施后及时通知您。</p>
+				<p class="indent2">前述状况包括但不限于：</p>
+				<p class="indent2">（1）公司有合理理由怀疑您不是被授权采集公积金数据的权利人；</p>
+				<p class="indent2">（2）公司发现异常情况或有合理理由怀疑操作存在风险或违法的；</p>
+				<p class="indent2">（3）公司认为账户存在未经授权使用或其他风险之情形；</p>
+				<p class="indent2">（4）公司认为您违反本授权书中规定的各类规则；</p>
+				<p class="indent2">（5）公司基于合理理由做出该项判断的其他情形。</p>
+				<p class="indent2"></p>
+				<p class="indent2">四、除外责任</p>
+				<p class="indent2">1.您同意，因下列任一状况导致公司无法正常开展本授权书项下事宜的，公司不承担任何责任，该状况包括但不限于：</p>
+				<p class="indent2">（1）公司或及第三方服务商、住房公积金管理中心系统需停机维护或升级的。</p>
+				<p class="indent2">（2）您的电脑或手机软、硬件出现故障的。</p>
+				<p class="indent2">（3）因病毒、木马、恶意程序攻击、网络拥堵、系统故障、通讯故障、电力故障、银行原因、第三方服务瑕疵、政府行为、黑客攻击、网络供应商技术调整或故障方面的问题等原因而造成公积金数据采集系统中断或延迟的；因台风、地震、海啸、洪水、战争、恐怖袭击等不可抗力之因素，造成公积金数据采集系统障碍不能执行业务的。</p>
+				<p class="indent2">（4）其他不可归因于公司的原因。</p>
+				<p class="indent2">2.因您的过错导致的任何损失，由您自行负责。该过错包括但不限于：操作不当、遗忘或泄漏密码、密码被他人破解、您使用的计算机系统被第三方侵入、您委托他人代理使用本平台服务时他人恶意或不当操作。除非公司单方故意或重大过失直接导致您遭受损失外，公司不承担责任。</p>
+				<p class="indent2">3.提供本授权可能会由于公积金管理中心采取一些安全管控措施导致您在重新完成身份验证或公积金管理中心要求的其他操作之前，无法正常登录公积金网站或相关系统、以及使用公积金中心所提供的服务。您充分知晓并接受上述风险及因此对您可能造成的影响，除法律有明确规定外，公司无需承担责任。</p>
+				<p class="indent2"></p>
+				<p class="indent2">本人已阅读同意接受本授权书的全部约定内容以及与本授权书有关的已经发布的各项规则、页面提示、操作流程、公告或通知。</p>
+				<p class="indent2"></p>
+				<p class="indent2"></p>
+            </div>
+        </div>
+        <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px; background-color:white">
+            <button id="btn_warning_close" type="button" class="btn-block btn-primary" style="width:100%; margin:auto">关闭</button>
+        </div>
+    </div>
+
+
+    <!--confirm pop-->
+    <div class="mask-black-dialog" id="pop_confirm" style="display:none">
+        <div class="m-confirm">
+            <div class="confirm-hd">
+                <strong class="confirm-title"></strong>
+            </div>
+            <div class="confirm-bd"></div>
+            <div class="confirm-ft">
+                <a href="javascript:closePop('pop_confirm'); activeBtn('#btn_apply','btn-primary')" class="confirm-btn default">取消</a>
+                <a href="javascript:sendApply()" class="confirm-btn primary">确定</a>
+            </div>
+        </div>
+    </div>
+    <!--confirm pop end-->
+
+    <!--alert pop-->
+    <div id="pop_alert" style="display:none">
+        <div class="mask-black-dialog">
+            <div class="m-confirm m-alert">
+                <div class="confirm-bd"></div>
+                <div class="confirm-ft">
+                    <a href="javascript:closePop('pop_alert')" class="confirm-btn primary">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--alert pop end-->
+	
+	<!-- loading pop start -->
+	<div class="mask-white-dialog" id="pop_loading" style="display:none">   
+		<div class="m-loading">       
+			<div class="loading-icon"></div>       
+			<div class="loading-txt"></div>   
+		</div>
+	</div>
+	<!-- loading pop end -->
+	
+
+</body>
+
+</html>
+
+<script src="js/reserve.js"></script>

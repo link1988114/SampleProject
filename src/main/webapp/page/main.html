@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/matrix-style.css" />
+    <link rel="stylesheet" href="css/matrix-media.css" />
+    <link rel="stylesheet" href="css/bootstrap-responsive.min.css" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+
+
+    <script src="js/tools/jquery.min.js"></script>
+    <!--
+    <script src="js/jquery.ui.custom.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+        -->
+
+    <title>后台管理</title>
+</head>
+
+<body>
+    <!--Header-part-->
+    <div id="header">
+        <h1>
+            <!--<a href="../visit.do"></a>-->
+        </h1>
+    </div>
+    <!--close-Header-part-->
+
+    <!-- start search -->
+    <div id="search">
+       <a title="" href="../user/logout.do"><i class="icon icon-share-alt"></i> <span class="text" style="color:white">注销</span></a>
+    </div>
+    <!-- end search -->
+
+    <!--sidebar-menu-->
+    <div id="sidebar"><a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+        <ul id="sidebarItems">
+        </ul>
+    </div>
+    <!--sidebar-menu-->
+
+
+    <!--main-container-part-->
+    <div id="content" style="padding-bottom:0">
+        <!--breadcrumbs-->
+        <div id="content-header">
+            <div id="breadcrumb">
+                <a href="welcome.html" target="homeif"><i class="icon icon-home"></i> <span>主页</span></a>
+            </div>
+        </div>
+        <!--End-breadcrumbs-->
+
+        <!--page content-->
+        <iframe id="homeframe" name="homeif" width="100%" frameborder="0" scrolling="yes" noResize marginwidth="0" marginheight="0"></iframe>
+        <!--End-page content-->
+    </div>
+    <!--End-main-container-part-->
+
+
+    <!--Footer-part-->
+    <div class="row-fluid">
+        <div id="footer" class="span12">客户数据管理 </div>
+    </div>
+    <!--end-Footer-part-->
+</body>
+
+</html>
+
+<script src="js/page/main.js"></script>

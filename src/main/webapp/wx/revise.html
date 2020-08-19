@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>中邮消费白名单预约</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+
+    <link rel="stylesheet" href="css/ydui.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src="js/tools/jquery.min.js"></script>
+
+    <script src="js/tools/ydui.flexible.js"></script>
+    <script src="js/tools/ydui.js"></script>
+    <script>
+        (!YDUI.device.isMobile && navigator.userAgent.indexOf('Firefox') >= 0) && YDUI.dialog.alert('PC端请使用谷歌内核浏览器查看！');
+    </script>
+
+    <script src="js/tools/baicai-validation.js"></script>
+
+    <script src="js/tools/myUI.js"></script>
+</head>
+
+<body>
+
+<section class="g-flexview">
+    <div class="g-scrollview">
+        <div style="margin-bottom:50px"></div>
+        <div class="cell-item">
+            <div class="cell-left w25P">查询密码</div>
+            <div class="cell-right">
+                <input id="cstm_pw" type="password" class="cell-input" placeholder="请输入公积金查询密码" autocomplete="off">
+            </div>
+        </div>
+        <button id="btn_apply" type="button" class="btn-block btn-primary">提交</button>
+    </div>
+</section>
+
+<!--confirm pop-->
+<div class="mask-black-dialog" id="pop_confirm" style="display:none">
+    <div class="m-confirm">
+        <div class="confirm-hd">
+            <strong class="confirm-title"></strong>
+        </div>
+        <div class="confirm-bd"></div>
+        <div class="confirm-ft">
+            <a href="javascript:closePop('pop_confirm'); activeBtn('#btn_apply','btn-primary')" class="confirm-btn default">取消</a>
+            <a href="javascript:sendApply()" class="confirm-btn primary">确定</a>
+        </div>
+    </div>
+</div>
+<!--confirm pop end-->
+
+<!--alert pop-->
+<div id="pop_alert" style="display:none">
+    <div class="mask-black-dialog">
+        <div class="m-confirm m-alert">
+            <div class="confirm-bd"></div>
+            <div class="confirm-ft">
+                <a href="javascript:closePop('pop_alert');gotoPage('reserve.html')" class="confirm-btn primary">确定</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!--alert pop end-->
+
+<!-- loading pop start -->
+<div class="mask-white-dialog" id="pop_loading" style="display:none">   
+	<div class="m-loading">       
+		<div class="loading-icon"></div>       
+		<div class="loading-txt"></div>   
+	</div>
+</div>
+<!-- loading pop end -->
+
+</body>
+
+</html>
+
+<script src="js/revise.js"></script>

@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+
+    <link rel="stylesheet" type="text/css" href="css/ydui.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <script src="js/tools/jquery.min.js"></script>
+    <script src="js/tools/ydui.flexible.js"></script>
+    <script src="js/tools/ydui.js"></script>
+
+    <script src="js/tools/myYDUI.js"></script>
+
+    <title>分分精彩</title>
+</head>
+
+<body>
+
+    <section class="g-flexview">
+        <div class="g-scrollview">
+
+            <img src="img/lotterybg.jpg" style="position:absolute; top:0; left:0; width:100%; height:100%; z-index:-1000" />
+
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-right">
+                        <input class="cell-input" id="ticket_code" type="text" placeholder="请输入兑换券号码" />
+                        <button class="btn btn-primary" id="btn_check">抽奖</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="height: 100%; display: flex; justify-content: center; align-items: center;">
+                <div style="position:relative; width:300px; height:300px">
+                    <img style="position:absolute; top:0; left:0; width:100%; height:100%" id="testimg" src="img/wheel.png" />
+                    <img style="position:absolute; top:0; left:0; width:100%; height:100%" id="Img3" src="img/index.png" />
+                </div>
+            </div>
+                        
+        </div>
+    </section>
+
+
+    <div id="pop_alert" style="display:none">   
+        <div class="mask-black-dialog">       
+            <div class="m-confirm m-alert">           
+                <div class="confirm-bd"></div>           
+                <div class="confirm-ft">               
+                    <a href="javascript: closeWarning('pop_alert');" class="confirm-btn primary">确定</a>           
+                </div>       
+            </div>   
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script src="js/tools/lotteryJS.js"></script>
+<script src="js/lotterysp.js"></script>

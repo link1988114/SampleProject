@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>中邮消费白名单预约</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+
+    <link rel="stylesheet" href="css/ydui.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script src="js/tools/jquery.min.js"></script>
+
+    <script src="js/tools/ydui.flexible.js"></script>
+    <script src="js/tools/ydui.js"></script>
+    <script>(!YDUI.device.isMobile && navigator.userAgent.indexOf('Firefox') >= 0) && YDUI.dialog.alert('PC端请使用谷歌内核浏览器查看！');</script>
+
+    <script src="js/tools/baicai-validation.js"></script>
+
+	<script src="js/tools/myUI.js"></script>
+</head>
+<body>
+<section class="g-flexview">
+
+    <div class="g-scrollview">
+
+        <div style="margin-bottom:50px"></div>
+
+
+        <div class="cell-item">
+                <div class="cell-left w25P">员工号</div>
+                <div class="cell-right">
+                    <input id="promote_code" type="text" class="cell-input" placeholder="请输入人力资源编码" autocomplete="off">
+                </div>
+         </div>
+         
+        <button id="btn_apply" type="button" class="btn-block btn-primary">获取二维码</button>
+    </div>
+
+</section>
+
+<div id="popWarning" style="background-color:white; overflow-y:auto; z-index:1500; position:fixed; top:0; left:0; width:100%; height:100%;display:none">
+    <div style="margin-top:20px;margin-bottom:100px">
+        <h2 class="page-title2">员工二维码</h2>
+        <div style="padding:10px;width:100%">
+        	<img id="img_qr" style="width:100%" src="#" />
+        </div>
+    </div>
+    <div style="position:fixed; bottom:0; left:0; width:100%; text-align:center; padding:10px; background-color:white">
+        <button id="btn_warning_close" type="button" class="btn-block btn-primary" style="width:100%; margin:auto">关闭</button>
+    </div>
+</div>
+
+
+<!--alert pop-->
+<div id="pop_alert" style="display:none">   
+    <div class="mask-black-dialog">       
+        <div class="m-confirm m-alert">           
+            <div class="confirm-bd"></div>           
+            <div class="confirm-ft">               
+                <a href="javascript:closePop('pop_alert')" class="confirm-btn primary">确定</a>           
+            </div>       
+        </div>   
+    </div>
+</div>
+<!--alert pop end-->
+
+</body>
+</html>
+
+<script src="js/staff.js"></script>
