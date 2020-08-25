@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2020-04-17 17:30:57
+Date: 2020-08-25 16:31:37
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -100,3 +100,24 @@ CREATE TABLE `wx_access` (
 -- Records of wx_access
 -- ----------------------------
 INSERT INTO `wx_access` VALUES ('1', '32_oN2r8fojv-AHX6sCIzbVnAW5fasF-mjRwtFf_by85tHEtF_rh3ocuJdUylN4prMxaoGy3LEPZW7_eb1WqCpWSstsBlp4CcUTWHdyXdNQxutq8Ro_0lKeEleByAHLO5O24zuDtAefM6iEpaEZJFMfAAACYF', '1587116370110');
+
+-- ----------------------------
+-- Table structure for `wx_appinfo`
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_appinfo`;
+CREATE TABLE `wx_appinfo` (
+  `appid` varchar(255) NOT NULL,
+  `token` varchar(255) DEFAULT NULL,
+  `expire` varchar(255) DEFAULT NULL,
+  `app_name` varchar(255) DEFAULT NULL,
+  `app_img` varchar(255) DEFAULT NULL,
+  `secret` varchar(255) DEFAULT NULL,
+  `cloud_env` varchar(255) DEFAULT NULL,
+  `list_keys` text,
+  `list_query` text,
+  PRIMARY KEY (`appid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- ----------------------------
+-- Records of wx_appinfo
+-- ----------------------------
