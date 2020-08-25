@@ -45,13 +45,13 @@ public class FileUtil
 			}
 			else 
 			{
-				result = "file not found";
+				result = null;
 			}
 		} 
 		catch (Exception e)
 		{
 			e.printStackTrace();
-			result = "error";
+			result = null;
 		}
 		return result;
 	}

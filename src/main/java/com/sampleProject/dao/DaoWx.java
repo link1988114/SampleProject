@@ -18,6 +18,15 @@ public class DaoWx extends BaseDao
 	
 	
 	
+	public WxModel getAppInfo(WxModel wxModel)
+	{
+		return (WxModel)db.selectOne(sqls.select_wx_getAppInfo, wxModel);
+	}
+	public int updateAppInfo(WxModel wxModel)
+	{
+		return db.update(sqls.update_wx_updateAppInfo, wxModel);
+	}
+	
 
 	
 }

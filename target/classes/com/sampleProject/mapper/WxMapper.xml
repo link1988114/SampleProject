@@ -15,6 +15,28 @@
  		on duplicate key 
  		update wx_token=#{wx_token}, wx_expire=#{wx_expire}
  	</insert>
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	<select id="getAppInfo" resultType="_WxModel">
+ 		select 
+ 			appid, token, expire, app_name, app_img, 
+ 			secret, cloud_env, list_keys, list_query 
+ 		from wx_appinfo
+ 		where appid=#{appid}
+ 	</select>
+ 	
+ 	<select id="updateAppInfo">
+ 		update wx_appinfo set token=#{token}, expire=#{expire}
+ 		where appid=#{appid}
+ 	</select>
+ 	
+ 	
+ 	
+ 	
+ 	
 
  	
  </mapper>

@@ -107,17 +107,21 @@ public class test
 //			}
 
 			
-			Date aaa = new Date();
-			aaa.setTime(1577180468598l);
-			//System.out.println(aaa);
+//			Date aaa = new Date();
+//			aaa.setTime(1577180468598l);
+//			//System.out.println(aaa);
+//			
+//			
+//			List<String> list = ProjectUtil.getUniqueNumRndCode(10, 6);
+//			for(int i=0; i<list.size(); i++)
+//			{
+//				System.out.println(list.get(i));
+//			}
+//
 			
-			
-			List<String> list = ProjectUtil.getUniqueNumRndCode(10, 6);
-			for(int i=0; i<list.size(); i++)
-			{
-				System.out.println(list.get(i));
-			}
-			
+			WxCloudUtil wxu = new WxCloudUtil();
+			String cloudUrl = "cloud://siteshot-8rpc1.7369-siteshot-8rpc1-1302606118/20200821/upload_1597972121869800716.jpg";
+			System.out.println(wxu.cloudUrlToHttpUrl(cloudUrl));
 			
 		} 
 		catch (Exception e)
